@@ -62,10 +62,12 @@ I pre-trained the GGNN in the GraphINVENT codebase on the SMILES strings from th
 <a href="https://drive.google.com/uc?export=view&id=1uIQEFHawM-8Iq6H0dF8XhGcZZcMBz95k"><img src="https://drive.google.com/uc?export=view&id=1uIQEFHawM-8Iq6H0dF8XhGcZZcMBz95k" style="width: 350px; max-width: 100%; height: auto" /></a>
 
 In the first few epochs, we have the smallest fraction of unique and valid molecules. However, we see that the fraction of unique and valid molecules gradually increases throughout training. During the last half of training (epochs 15-30), we see high values for the validity of the structures and the uniqueness of the generated structures.
+
 <a href="https://drive.google.com/uc?export=view&id=1cXXF5MbU1N8he7OqkchByIn5to7CzV3r"><img src="https://drive.google.com/uc?export=view&id=1cXXF5MbU1N8he7OqkchByIn5to7CzV3r" style="width: 350px; max-width: 100%; height: auto" /></a>
 <a href="https://drive.google.com/uc?export=view&id=1wX_IJLzE7pop-VZxccE5CQS3OIx6Ow5c"><img src="https://drive.google.com/uc?export=view&id=1wX_IJLzE7pop-VZxccE5CQS3OIx6Ow5c" style="width: 350px; max-width: 100%; height: auto" /></a>
 
 As the training progresses, the network generates larger, more complex molecules as exhibited by the figure below. The number of nodes (heavy atoms) steadily increases during training.
+
 <a href="https://drive.google.com/uc?export=view&id=1euQl6AhG_sNtoA_MBCS9BuIFy_6BFE7c"><img src="https://drive.google.com/uc?export=view&id=1euQl6AhG_sNtoA_MBCS9BuIFy_6BFE7c" style="width: 350px; max-width: 100%; height: auto" /></a>
 
 In the first few epochs, most of the molecules were very simple. A few examples are shown below. These first structures are the "building blocks" for some larger molecules.
