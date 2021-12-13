@@ -41,6 +41,8 @@ Lastly, I used existing code to generate new chromophore-like structures. To do 
 ### Organization of Github repo
 Because I used an existing codebase, GraphINVENT, for a portion of this project, I wanted to give an outline of the Github repo highlighting all of my contributions to the uploaded code. The files in italics were changed by me for use in this project. The files in bold were new files containing code that I wrote.
 
+<a href="https://drive.google.com/uc?export=view&id=16iyBwaSElXVbYu2RF5l3oMGu4q_bRsP2"><img src="https://drive.google.com/uc?export=view&id=16iyBwaSElXVbYu2RF5l3oMGu4q_bRsP2" style="width: 300px; max-width: 100%; height: auto" /></a>
+
 
 ## Results
 ### GCNN to predict absorption and emission wavelengths
@@ -55,12 +57,15 @@ The final model yielded a RMSE of 33.8 nm and 44.1 nm on the absorption and emis
 <a href="https://drive.google.com/uc?export=view&id=1_21fVBflZjZ78bOWHA2oRouo4GqrpJu_"><img src="https://drive.google.com/uc?export=view&id=1_21fVBflZjZ78bOWHA2oRouo4GqrpJu_" style="width: 350px; max-width: 100%; height: auto" /></a> 
   
 ### Pre-training GGNN in GraphINVENT on chromophore database
-I pre-trained the GGNN in the GraphINVENT codebase for 30 epochs total. 
+I pre-trained the GGNN in the GraphINVENT codebase on the SMILES strings from the chromophore database for 30 epochs total. By using this database, I hoped that the network would learn to produce chemically-viable structures and also structures that resembled that of other existing chromophores. The training curve (below) steadily decreases with increasing epochs whereas the validation loss stays roughly constant after ~15 epochs.
 
 <a href="https://drive.google.com/uc?export=view&id=1uIQEFHawM-8Iq6H0dF8XhGcZZcMBz95k"><img src="https://drive.google.com/uc?export=view&id=1uIQEFHawM-8Iq6H0dF8XhGcZZcMBz95k" style="width: 350px; max-width: 100%; height: auto" /></a>
 
+In the first few epochs, we have the smallest fraction of unique and valid molecules. However, we see that the fraction of unique and valid molecules gradually increases throughout training. During the last half of training (epochs 15-30), we see high values for the validity of the structures and the uniqueness of the generated structures.
 <a href="https://drive.google.com/uc?export=view&id=1cXXF5MbU1N8he7OqkchByIn5to7CzV3r"><img src="https://drive.google.com/uc?export=view&id=1cXXF5MbU1N8he7OqkchByIn5to7CzV3r" style="width: 350px; max-width: 100%; height: auto" /></a>
 <a href="https://drive.google.com/uc?export=view&id=1wX_IJLzE7pop-VZxccE5CQS3OIx6Ow5c"><img src="https://drive.google.com/uc?export=view&id=1wX_IJLzE7pop-VZxccE5CQS3OIx6Ow5c" style="width: 350px; max-width: 100%; height: auto" /></a>
+
+As the training progresses, the network generates larger, more complex molecules as exhibited by the figure below. The number of nodes (heavy atoms) steadily increases during training.
 <a href="https://drive.google.com/uc?export=view&id=1euQl6AhG_sNtoA_MBCS9BuIFy_6BFE7c"><img src="https://drive.google.com/uc?export=view&id=1euQl6AhG_sNtoA_MBCS9BuIFy_6BFE7c" style="width: 350px; max-width: 100%; height: auto" /></a>
 
 In the first few epochs, most of the molecules were very simple. A few examples are shown below. These first structures are the "building blocks" for some larger molecules.
