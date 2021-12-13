@@ -85,13 +85,13 @@ class ScoringFunction:
             raise NotImplementedError
 
         # remove contribution of duplicate molecules to the score
-        #final_score *= uniqueness
+        final_score *= uniqueness
 
         # remove contribution of invalid molecules to the score
-        #final_score *= validity
+        final_score *= validity
 
         # remove contribution of improperly-terminated molecules to the score
-        #final_score *= termination
+        final_score *= termination
 
         return final_score
 
@@ -162,7 +162,7 @@ class ScoringFunction:
                 for mol in mols:
                     try:
                         chromo_smi = MolToSmiles(mol)
-                        if chromo_smi == 'Hello':
+                        if chromo_smi == ' ':
                             pass
                         else:
                             solv_smi = 'Cc1ccccc1'  #default: Toluene
@@ -182,29 +182,15 @@ class ScoringFunction:
                 model.eval()
                 with torch.no_grad():
                     output = model(sq_f, sq_a, solv_sq_f, solv_sq_a)
-                output[:, 0] *= 82.09614#np.sqrt(var_s1)
-                output[:, 0] += 401.65305#mean_s1
+                output[:, 0] *= 82.09614
+                output[:, 0] += 401.65305
                 print(output[:,0])
                 output[:, 0] /= 100
-                output[:, 1] *= 89.79511#np.sqrt(var_lambda)
-                output[:, 1] += 499.41762#mean_lambda
+                output[:, 1] *= 89.79511
+                output[:, 1] += 499.41762
                 output[:, 1] /= 100
 
                 score = torch.tensor(output[:, 0], device=self.device)
-
-                contributions_to_score.append(score)
-
-            elif "lambda" in score_component:
-                mols = [graph.molecule for graph in graphs]
-                chromo_list = []
-                solv_list = []
-                for mol in mols:
-                    chromo_smi = MolToSmiles(mol)
-                    solv_smi = 'Cc1ccccc1'  #default: Toluene
-                    chromo_list.append(chromo_smi)
-                    solv_list.append(solv_smi)
-                output = self.inference(chromo_list, solv_list, 'best_model.pt')
-                score = torch.tensor((output[:, 1]-output[:, 0])/2, device=self.device)
 
                 contributions_to_score.append(score)
             
