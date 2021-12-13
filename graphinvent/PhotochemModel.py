@@ -18,11 +18,10 @@ class GCNChem(nn.Module):
         self.fc3 = nn.Linear(256, 128)
         self.fc_int = nn.Linear(256, 128)
         self.fc_int2 = nn.Linear(128, 2)
-        #self.bngcn = nn.BatchNorm1d(num_features=43, track_running_stats=False)
         self.bngcn = nn.BatchNorm1d(num_features=30, track_running_stats=False)
-        self.bn1 = nn.BatchNorm1d(num_features=512, track_running_stats=False)
-        self.bn2 = nn.BatchNorm1d(num_features=256, track_running_stats=False)
-        self.bn3 = nn.BatchNorm1d(num_features=128, track_running_stats=False)
+        self.bn1 = nn.BatchNorm1d(num_features=512, track_running_stats=True)
+        self.bn2 = nn.BatchNorm1d(num_features=256, track_running_stats=True)
+        self.bn3 = nn.BatchNorm1d(num_features=128, track_running_stats=True)
         self.accuracy = None
 
     def forward(self, chromo_f, chromo_a, solv_f, solv_a, gcn_layers=2):
