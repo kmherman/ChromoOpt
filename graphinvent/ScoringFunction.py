@@ -176,7 +176,7 @@ class ScoringFunction:
                 sq_a = get_adj_matrix(chromo_list)
                 model = GCNChem().eval()
                 torch.cuda.empty_cache()
-                model.load_state_dict(torch.load('graphinvent/test_noheavyatoms.pt'))
+                model.load_state_dict(torch.load('graphinvent/best_model_noheavyatoms.pt'))
                 #model = torch.load('graphinvent/best_model_noheavyatoms.pt')
                 model.cuda()
                 model.eval()
