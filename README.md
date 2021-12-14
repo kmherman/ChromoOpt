@@ -43,7 +43,7 @@ Lastly, I used existing code to generate new chromophore-like structures. To do 
 ### Organization of Github repo
 Because I used an existing codebase, GraphINVENT, for a portion of this project, I wanted to give an outline of the Github repo highlighting all of my contributions to the uploaded code. The files in italics were altered by me for use in this project. The files in bold were new files containing code written solely by me.
 
-<a href="https://drive.google.com/uc?export=view&id=16iyBwaSElXVbYu2RF5l3oMGu4q_bRsP2"><img src="https://drive.google.com/uc?export=view&id=16iyBwaSElXVbYu2RF5l3oMGu4q_bRsP2" style="width: 300px; max-width: 100%; height: auto" /></a>
+<a href="https://drive.google.com/uc?export=view&id=1hN82jKto4LbaKnZJLe8Pb9s8-082y07j"><img src="https://drive.google.com/uc?export=view&id=1hN82jKto4LbaKnZJLe8Pb9s8-082y07j" style="width: 300px; max-width: 100%; height: auto" /></a>
 
 
 ## Results
