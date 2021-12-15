@@ -15,7 +15,7 @@ The use of deep learning for drug design is prevalent in the literature. These h
 
 Many researchers have turned to generative adversarial networks (GANs) to address this issue, leading to the development of networks such as MolGAN<sup>5</sup> and ORGAN<sup>7</sup>. The challenge of training GANs is the issue of mode collapse and unstable training<sup>6</sup> (as we discussed in class). This often limits the generation to relatively small, simple molecules. A recently developed codebase, GraphINVENT, has shown the success of gated graph neural networks (GGNNs) in building molecules up bond-by-bond and *implicitly* learning chemistry bonding rules by pre-training the deep generative model on a database of SMILES strings of molecules. Conversely, others have carefully and explicitly defined alterations that can be made to a molecule in order to ensure chemical validity. By using one of these methods and implementing RL, researchers have successfully been able to bias the generation of molecules towards those with specific properties for use as drugs.
 
-While these methods ahve been widely used in drug design, a similar approach has not yet been implemented to design chromophores. By simply changing the scoring function of these reinforcement learning (RL) methods, we can bias the generation of molecules towards those with desired photochemical properties.
+While these methods have been widely used in drug design, a similar approach has not yet been implemented to design chromophores. By simply changing the scoring function of these reinforcement learning (RL) methods, we can bias the generation of molecules towards those with desired photochemical properties.
 
 ## Approach
 ### Dataset:
@@ -83,11 +83,11 @@ After 30 epochs, the GGNN was capable of producing complex and still chemically-
 ### Using pre-trained GGNN to generate new chromophore-like structures and analyzing them with trained GCNN
 Using the pre-trained GGNN, I generated ~5,000 new chromophore-like structures. In an attempt to find new chromophore structures with high wavlengths of absorption, I used the trained GCNN to predict the wavelength of absorption for each of the molecules.
 
-The top 5 chromophore structures are shown with their corresponding predicted excitation energies. The fact that many of these structures are large with a high amount of conjugation is what we would expect conceptually. However, the highest predicted wavelength is 608 nm which is not yet in the near IR or IR. Because the dataset that the GCNN and GGNN were trained on consisted of chromophores that absorb light between 300 nm-600 nm, this somewhat makes sense.
+The top 5 chromophore structures (with the largest predicted wavelengths of absorption) are shown with their corresponding predicted excitation energies. The fact that many of these structures are large with a high amount of conjugation is what we would expect conceptually. However, the highest predicted wavelength is 608 nm which is not yet in the near IR or IR. Because the dataset that the GCNN and GGNN were trained on consisted of chromophores that absorb light between 300 nm-600 nm, this somewhat makes sense.
 
 <a href="https://drive.google.com/uc?export=view&id=1T1f7vpG92930hUQmsLwNpw2IqEBQs3ab"><img src="https://drive.google.com/uc?export=view&id=1T1f7vpG92930hUQmsLwNpw2IqEBQs3ab" style="width: 700px; max-width: 100%; height: auto" /></a>
 
-The 5 chromophores with the lowest predicted wavlength of excitation are shown below.
+The 5 chromophores with the lowest predicted wavelength of excitation are shown below.
 
 <a href="https://drive.google.com/uc?export=view&id=1j-VRmM-rm4G7GBH3H4HHM7AsPMwtzMb6"><img src="https://drive.google.com/uc?export=view&id=1j-VRmM-rm4G7GBH3H4HHM7AsPMwtzMb6" style="width: 600px; max-width: 100%; height: auto" /></a>
 
